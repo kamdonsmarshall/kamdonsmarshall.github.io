@@ -1,6 +1,6 @@
 # ArchLinux Project Documentation 
 ### kamdonsmarshall.github.io
-Downloaded ISO from HTTP from MIT mirror site
+- Downloaded ISO from HTTP from MIT mirror site
 - Validated the checksum using 7Zip and compared the two SHA256 values
 - Config:
 	- Installed VM on VMWare Workstation, created Guest Operating System using ISO (Linux, Version- Other Linux 6.x kernel 64-bit)
@@ -81,17 +81,17 @@ Downloaded ISO from HTTP from MIT mirror site
 	18) 3.8 Bootloader: bootctl)
 		1) install nano: `pacman -Sy nano`
 		2) `bootctl install`
-		3) `nano /boot/loader/loader.conf`
-			1) `default arch # tells the system to boot the  entry arch` 
-				`timeout 3 # bootloader waits 3 secs`
-				`editor yes #allows me to edit boot options at the boot screen`
-		4) nano /boot/loader/entries/arch.conf
-			1) `title   Arch Linux`
-				`linux   /vmlinuz-linux #points to the kernal image to boot`
-				`initrd  /initramfs-linux.img #specifcies the initial ram disk`
-				`initrd  /initramfs-linux-fallback.img # fallback image if the first fails`
-				`options root=UUID=aa1252ba-a0b8-470c-9b7b-8542658027cd rw #kernel command line`
-		5) `bootctl list`
+			- `nano /boot/loader/loader.conf`
+				- `default arch # tells the system to boot the  entry arch` 
+				- `timeout 3 # bootloader waits 3 secs`
+				- `editor yes #allows me to edit boot options at the boot screen`
+		3) nano /boot/loader/entries/arch.conf
+			- `title   Arch Linux`
+			- `linux   /vmlinuz-linux #points to the kernal image to boot`
+			- `initrd  /initramfs-linux.img #specifcies the initial ram disk`
+			- `initrd  /initramfs-linux-fallback.img # fallback image if the first fails`
+			- `options root=UUID=aa1252ba-a0b8-470c-9b7b-8542658027cd rw #kernel command line`
+		4) `bootctl list`
 	19) 3.9: exit and reboot (aka pray, holy))
 		1) `umount -R /mnt`
 		2) `reboot`
@@ -130,7 +130,7 @@ using yay because it will automatically handle the dependencies and PKGBUILDs.
 	- `yay -S macos-icon-theme capitaine-cursors whitesur-gtk-theme sf-pro-font # mac-style theme`
 5) SSH
 	- `sudo pacman -S openssh`
-	- `sudo systemctl enable --now sshd 
+	- `sudo systemctl enable --now sshd` 
 	initally recieved "preset: disabled", so i fixed it with the now flag
 6) Shell and Aliases (Zsh)
 	- `yay -S zsh oh-my-zsh-git`
@@ -139,4 +139,4 @@ using yay because it will automatically handle the dependencies and PKGBUILDs.
 	- `alias ll='ls -la'`
 	- `alias update='yay -Syu'`
 	- `neofetch && fortune || cowsay lolcat`
-	I had an error sourcing .zshrc saying "autoload command not found", which was because i was still in bash and not zsh. i just had to install it fully again, and then log back in and out, rebooting the system
+I had an error sourcing .zshrc saying "autoload command not found", which was because i was still in bash and not zsh. i just had to install it fully again, and then log back in and out, rebooting the system
