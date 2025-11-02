@@ -1,6 +1,6 @@
 # ArchLinux Project Documentation 
 ### kamdonsmarshall.github.io
-- Downloaded ISO from HTTP from MIT mirror site
+Downloaded ISO from HTTP from MIT mirror site
 - Validated the checksum using 7Zip and compared the two SHA256 values
 - Config:
 	- Installed VM on VMWare Workstation, created Guest Operating System using ISO (Linux, Version- Other Linux 6.x kernel 64-bit)
@@ -99,43 +99,44 @@ DONE!
 
 Arch Config
 1) adding a user and sudo perms)
-	`useradd -m -G wheel -s /bin/bash evilkamdon`
-	`passwd evilkamdon #(kamdon46)`
-	`pacman -S nano sudo (installing nano and sudo editor tools)`
-	`EDITOR=nano visudo`
-	`# remove the hashtag from %wheel ALL=(ALL:ALL) ALL to give sudo perms to user`
-	`su -evilkamdon`
-	`sudo ls /root`
+	- `useradd -m -G wheel -s /bin/bash evilkamdon`
+	- `passwd evilkamdon #(kamdon46)`
+	- `pacman -S nano sudo (installing nano and sudo editor tools)`
+	- `EDITOR=nano visudo`
+	- `# remove the hashtag from %wheel ALL=(ALL:ALL) ALL to give sudo perms to user`
+	- `su -evilkamdon`
+	- `sudo ls /root`
 2) installing a DE (LXQt)
-	`sudo pacman -Syu`
-	`sudo pacman -S xorg sddm lxqt breeze-icons`
-	`sudo pacman -Syy`
-	`sudo pacman -S network-manager-applet brightnessctl pipewire pipewire-pulse pavucontrol`
-	`sudo systemctl enable NetworkManager`
-	`sudo systemctl start NetworkManager`
-	`sudo systemctl enable sddm`
-	`sudo reboot`
+	- `sudo pacman -Syu`
+	- `sudo pacman -S xorg sddm lxqt breeze-icons`
+	- `sudo pacman -Syy`
+	- `sudo pacman -S network-manager-applet brightnessctl pipewire pipewire-pulse pavucontrol`
+	- `sudo systemctl enable NetworkManager`
+	- `sudo systemctl start NetworkManager`
+	- `sudo systemctl enable sddm`
+	- `sudo reboot`
 
 3) install a browser
 using yay because it will automatically handle the dependencies and PKGBUILDs.
-	`sudo pacman -S git base-devel`
-	`git clone https://aur.archlinux.org/yay.git`
-	`cd yay`
-	`makepkg -si`
-	`cd ~`
-	`yay -S google-chrome`
-	`google-chrome-stable &`
+	- `sudo pacman -S git base-devel`
+	- `git clone https://aur.archlinux.org/yay.git`
+	- `cd yay`
+	- `makepkg -si`
+	- `cd ~`
+	- `yay -S google-chrome`
+	- `google-chrome-stable &`
 4) Customizations
-	`yay -S fortune mod cowsay spotify discord # fun startup quotes, applications`
-	`yay -S macos-icon-theme capitaine-cursors whitesur-gtk-theme sf-pro-font # mac-style theme`
+	- `yay -S fortune mod cowsay spotify discord # fun startup quotes, applications`
+	- `yay -S macos-icon-theme capitaine-cursors whitesur-gtk-theme sf-pro-font # mac-style theme`
 5) SSH
-	`sudo pacman -S openssh`
-	`sudo systemctl enable --now sshd # initally recieved "preset: disabled", so i fixed it with the now flag`
+	- `sudo pacman -S openssh`
+	- `sudo systemctl enable --now sshd 
+	initally recieved "preset: disabled", so i fixed it with the now flag
 6) Shell and Aliases (Zsh)
-	`yay -S zsh oh-my-zsh-git`
-	`chsh -s /bin/zsh`
-	`alias ls='ls --color=auto'`
-	`alias ll='ls -la'`
-	`alias update='yay -Syu'`
-	`neofetch && fortune || cowsay lolcat`
-	i had an error sourcing .zshrc saying "autoload command not found", which was because i was still in bash and not zsh. i just had to install it fully again, and then log back in and out, rebooting the system
+	- `yay -S zsh oh-my-zsh-git`
+	- `chsh -s /bin/zsh`
+	- `alias ls='ls --color=auto'`
+	- `alias ll='ls -la'`
+	- `alias update='yay -Syu'`
+	- `neofetch && fortune || cowsay lolcat`
+	I had an error sourcing .zshrc saying "autoload command not found", which was because i was still in bash and not zsh. i just had to install it fully again, and then log back in and out, rebooting the system
