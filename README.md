@@ -1,5 +1,5 @@
 # ArchLinux Project Documentation 
-# kamdonsmarshall.github.io
+### kamdonsmarshall.github.io
 - Downloaded ISO from HTTP from MIT mirror site
 - Validated the checksum using 7Zip and compared the two SHA256 values
 - Config:
