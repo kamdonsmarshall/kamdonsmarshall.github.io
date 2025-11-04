@@ -6,24 +6,28 @@
 	- Installed VM on VMWare Workstation, created Guest Operating System using ISO (Linux, Version- Other Linux 6.x kernel 64-bit)
 	- Allocated 2GB of RAM and 20GB of HDD Storage
 	
-1) **STEP 1:**
-	1) 1.5) Set the keyboard layout using 
+1. **STEP 1:**
+	1. 1.5) Set the keyboard layout using 
 		1) `localectl list-keymaps`
 		2) `loadkeys us`
-	2) 1.5) Set font using
-		1) `set font ter-132b` 
-	3) 1.6) Verify the boot mode
-		1) `cat /sys/firmware/efi/fw_platform_size`
-		2) Output: No such file or directory. So, that means my system is booted in BIOS mode
-		3) Second time around: Changed vmx file's second line to "firmware = "efi", reloaded my VM, tried boot again, 64 was the output (UEFI now)
-	4) 1.7) Connect to internet
-		1) `ip link` 
-		2) Connect to network:
+
+	2. 1.5) Set font using
+		1) `set font ter-132b`
+
+	3. 1.6) Verify the boot mode
+		1. `cat /sys/firmware/efi/fw_platform_size`
+		2. Output: No such file or directory. So, that means my system is booted in BIOS mode
+		3. Second time around: Changed vmx file's second line to "firmware = "efi", reloaded 			   VM, tried boot again, 64 was the output (UEFI now)
+
+	4. 1.7) Connect to internet
+		1. `ip link` 
+		2. Connect to network:
 			1) `systemctl start systemd-networked` # enables the network management
 			2) `system start systemd-resolved` # enables the dns resolution 
 			3) `ip addr show ens33`
 			4) `ping ping.archlinux.org` & recieved 9 packets (good)
 		3) I had trouble getting the network to load as I kept getting "<NO-RECIEVER>" errors on the ens33 section which means that my virtual network was detected but wouldn't connect. Restarted multiple times, checked VM settings "Network Adapter" for NAT connectivity, verified it, and then rebooted to get the ping to show.
+
 	5) 1.8) Update the system clock
 		1) `timedatectl` 
 		2) `timedatectl list-timezones`
