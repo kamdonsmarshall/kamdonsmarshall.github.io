@@ -13,7 +13,10 @@ Project 2 Documentation
 	- `sudo systemctl start docker.service`
 	- `docker info`
    		- <img width="1273" height="965" alt="docker info" src="https://github.com/user-attachments/assets/5bd6141b-cf6b-490a-a823-8a80ed5e8973" />
-	- `sudo docker run hello-world`![Uploading docker info.png…]()
+	- `sudo docker run hello-world`
+		- <img width="955" height="750" alt="image" src="https://github.com/user-attachments/assets/5402a252-058d-4dee-8efd-2ce9d0211bda" />
+
+
 - Check the version to make sure I got the right one
 	- `docker-compose --version` (Output: 2.40.3)
 
