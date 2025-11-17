@@ -3,6 +3,7 @@ Project 2 Documentation
 ---
 https://docs.docker.com/engine/install/
 https://docs.docker.com/compose/
+---
 ## Docker Compose Installation (Supa EZ)
 
 -  Refresh packages
@@ -38,3 +39,5 @@ https://docs.docker.com/compose/
 - Check to see if it is working online
 	- `localhost:3001` 
 	- <img width="1920" height="1148" alt="docker ps (uptime-kuma)" src="https://github.com/user-attachments/assets/d5a0a750-c529-4763-81e1-aea9a562483a" />
+	- <img width="1282" height="918" alt="uptime" src="https://github.com/user-attachments/assets/3f7ec493-d01f-4ec7-a32e-f21e0f4365b4" />
+
