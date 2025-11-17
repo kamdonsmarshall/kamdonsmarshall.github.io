@@ -1,10 +1,6 @@
 
 Project 2 Documentation
 ---
-https://docs.docker.com/engine/install/ | 
-https://docs.docker.com/compose/ | 
-https://github.com/louislam/uptime-kuma | 
-https://hub.docker.com/r/louislam/uptime-kuma
 
 ## Docker Compose Installation (Supa EZ)
 
@@ -43,3 +39,7 @@ https://hub.docker.com/r/louislam/uptime-kuma
 	- <img width="1920" height="1148" alt="docker ps (uptime-kuma)" src="https://github.com/user-attachments/assets/d5a0a750-c529-4763-81e1-aea9a562483a" />
 	- <img width="1282" height="918" alt="uptime" src="https://github.com/user-attachments/assets/3f7ec493-d01f-4ec7-a32e-f21e0f4365b4" />
 
+https://docs.docker.com/engine/install/ | 
+https://docs.docker.com/compose/ | 
+https://github.com/louislam/uptime-kuma | 
+https://hub.docker.com/r/louislam/uptime-kuma
