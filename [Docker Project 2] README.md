@@ -30,7 +30,7 @@ Project 2 Documentation [Kamdon Marshall]
    		- <img width="950" height="1003" alt="docker-compose up -d" src="https://github.com/user-attachments/assets/49a95de2-90b3-4cf6-9cfb-3551cb8518f0" />
 - Ensure it is running
 	- `sudo docker ps`
-   		- <img width="1920" height="1148" alt="docker ps (uptime-kuma)" src="https://github.com/user-attachments/assets/58726900-9741-4f5e-845f-61a38e966e2d" />
+   		- <img width="952" height="747" alt="docker ps" src="https://github.com/user-attachments/assets/649cb86f-a4dc-4daa-89be-d592a77d42c2" />
 - Check to see if it is working online
 	- `localhost:3001` 
 	- <img width="1920" height="1148" alt="docker ps (uptime-kuma)" src="https://github.com/user-attachments/assets/d5a0a750-c529-4763-81e1-aea9a562483a" />
