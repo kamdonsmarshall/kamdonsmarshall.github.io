@@ -6,8 +6,8 @@ Project 2 Documentation [Kamdon Marshall]
 
 -  Refresh packages
 	- `sudo pacman -Syu`
-- Install Docker Compose
-	- `sudo pacman -S docker docker-compose`
+- Install Docker Engine & Compose
+	- `sudo pacman -S docker docker-compose` 
 - Enable, start, verify
 	- `sudo systemctl enable docker.service`
 	- `sudo systemctl start docker.service`
