@@ -1,7 +1,6 @@
 
 Project 2 Documentation
 ---
-
 ## Docker Compose Installation (Supa EZ)
 
 -  Update the packages
