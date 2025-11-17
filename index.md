@@ -6,7 +6,7 @@ Project 2 Documentation
 
 -  Update the packages
 	- `sudo pacman -Syu`
-- Install Docker Compose
+- Install Docker Engine & Compose
 	- `sudo pacman -S docker docker-compose` #installs the docker engine & compose from arch repos
 - Enable, start, verify
 	- `sudo systemctl enable docker.service` 
