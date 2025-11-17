@@ -2,7 +2,7 @@
 #Project 2 Documentation [Kamdon Marshall]
 ---
 
-## ==Docker Compose Installation (Supa EZ)==
+## Docker Compose Installation (Supa EZ)
 
 -  Refresh packages
 	- `sudo pacman -Syu`
@@ -16,7 +16,7 @@
 - Check the version to make sure I got the right one
 	- `docker-compose --version` (Output: 2.40.3)
 
-## ==Uptime Kuma==
+## Uptime Kuma
 
 - Create a PD for Uptime Kuma
 	- `mkdir -p ~/docker/uptime-kuma`
