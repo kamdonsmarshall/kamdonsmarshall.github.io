@@ -26,7 +26,7 @@ Project 2 Documentation
 	- `mkdir -p ~/docker/uptime-kuma`
 	- `cd ~/docker/uptime-kuma`
 - Create the .yml file
-	- `nano docker-compose.yml
+	- `nano docker-compose.yml`
 		- `version: "3.9" services: uptime-kuma: image: louislam/uptime-kuma:latest container_name: uptime-kuma ports:- "3001:3001" volumes: - ./data:/app/data restart: unless-stopped`
 - Launch Uptime Kuma
 	- `sudo docker-compose up -d`
