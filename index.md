@@ -1,5 +1,5 @@
 
-Project 2 Documentation
+# Project 2 Documentation
 ---
 ## Docker Compose Installation (Supa EZ)
 
