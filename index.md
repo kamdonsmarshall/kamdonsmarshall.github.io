@@ -2,7 +2,9 @@
 Project 2 Documentation
 ---
 https://docs.docker.com/engine/install/ | 
-https://docs.docker.com/compose/
+https://docs.docker.com/compose/ | 
+https://github.com/louislam/uptime-kuma | 
+https://hub.docker.com/r/louislam/uptime-kuma
 ---
 ## Docker Compose Installation (Supa EZ)
 
