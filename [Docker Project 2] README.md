@@ -12,7 +12,8 @@ Project 2 Documentation [Kamdon Marshall]
 	- `sudo systemctl enable docker.service`
 	- `sudo systemctl start docker.service`
 	- `docker info`
-	- `sudo docker run hello-world`
+   		- <img width="1273" height="965" alt="docker info" src="https://github.com/user-attachments/assets/5bd6141b-cf6b-490a-a823-8a80ed5e8973" />
+	- `sudo docker run hello-world`![Uploading docker info.png…]()
 - Check the version to make sure I got the right one
 	- `docker-compose --version` (Output: 2.40.3)
 
@@ -26,8 +27,11 @@ Project 2 Documentation [Kamdon Marshall]
 		- `version: "3.9" services: uptime-kuma: image: louislam/uptime-kuma:latest container_name: uptime-kuma ports:- "3001:3001" volumes: - ./data:/app/data restart: unless-stopped`
 - Launch Uptime Kuma
 	- `sudo docker-compose up -d`
+   		- <img width="950" height="1003" alt="docker-compose up -d" src="https://github.com/user-attachments/assets/49a95de2-90b3-4cf6-9cfb-3551cb8518f0" />
 - Ensure it is running
 	- `sudo docker ps`
+   		- <img width="1920" height="1148" alt="docker ps (uptime-kuma)" src="https://github.com/user-attachments/assets/58726900-9741-4f5e-845f-61a38e966e2d" />
 - Check to see if it is working online
 	- `localhost:3001` 
-	- ![[docker ps (uptime-kuma).png]]
+	- <img width="1920" height="1148" alt="docker ps (uptime-kuma)" src="https://github.com/user-attachments/assets/d5a0a750-c529-4763-81e1-aea9a562483a" />
+
