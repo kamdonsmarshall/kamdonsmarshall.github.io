@@ -1,4 +1,4 @@
-# ArchLinux Project Documentation   
+# ArchLinux Project 1 Documentation   
 ### kamdonsmarshall.github.io
 
 - Downloaded ISO from HTTP from MIT mirror site  
