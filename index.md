@@ -1,44 +1,117 @@
+# ## **1. Create DigitalOcean Droplet**
+After creating an account...
+### **Droplet Specs**
+- Region: NYC
+- Image: Ubuntu 24.04 LTS
+- Size: Basic / 1 CPU / 1 GB RAM
+- My droplet’s public IP:
+	- `138.197.23.123`
+- Pass: **Redacted** lol
+<img width="2528" height="1323" alt="Digital Ocean" src="https://github.com/user-attachments/assets/ed653029-75f6-4b83-8de0-a0fe41705218" />
 
-# Project 2 Documentation: Docker
----
-## Docker Compose Installation (Supa EZ)
+# ## **2. Install Docker *
+I SSH'd into the droplet using my terminal (bounced back and forth between this and DigitalOcean's web console too)
 
--  Update the packages
-	- `sudo pacman -Syu`
-- Install Docker Engine & Compose
-	- `sudo pacman -S docker docker-compose` #installs the docker engine & compose from arch repos
-- Enable, start, verify
-	- `sudo systemctl enable docker.service` 
-	- `sudo systemctl start docker.service` #starts the docker daemon immediately
-	- `docker info` #to confirm the daemon is running
-   		- <img width="1273" height="965" alt="docker info" src="https://github.com/user-attachments/assets/5bd6141b-cf6b-490a-a823-8a80ed5e8973" />
-	- `sudo docker run hello-world` #just for confirmation 
-		- <img width="955" height="750" alt="image" src="https://github.com/user-attachments/assets/5402a252-058d-4dee-8efd-2ce9d0211bda" />
+```
+ssh root@138.197.23.123
+```
 
+Installed Docker using:
+```
+apt update
+apt install -y ca-certificates curl gnupg lsb-release
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] \
+  https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" \
+  | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-- Check the version to make sure I got the right one
-	- `docker-compose --version` #output for me was 2.40.3
+apt update
+apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-## Uptime Kuma
+```
 
-- Create a PD for Uptime Kuma
-	- `mkdir -p ~/docker/uptime-kuma`
-	- `cd ~/docker/uptime-kuma`
-- Create the .yml file
-	- `nano docker-compose.yml`
-		- `version: "3.9" services: uptime-kuma: image: louislam/uptime-kuma:latest container_name: uptime-kuma ports:- "3001:3001" volumes: - ./data:/app/data restart: unless-stopped` #version specifies the compose files, image pulled from uptime kuma, #ports are 3001 on host to container, volume stores data
-- Launch Uptime Kuma
-	- `sudo docker-compose up -d` 
-   		- <img width="950" height="1003" alt="docker-compose up -d" src="https://github.com/user-attachments/assets/49a95de2-90b3-4cf6-9cfb-3551cb8518f0" />
-- Ensure it is running
-	- `sudo docker ps` #lists all running containers
-   		- <img width="952" height="747" alt="docker ps" src="https://github.com/user-attachments/assets/649cb86f-a4dc-4daa-89be-d592a77d42c2" />
-- Check to see if it is working on browser
-	- `localhost:3001` 
-	- <img width="1920" height="1148" alt="docker ps (uptime-kuma)" src="https://github.com/user-attachments/assets/d5a0a750-c529-4763-81e1-aea9a562483a" />
-	- <img width="1282" height="918" alt="uptime" src="https://github.com/user-attachments/assets/3f7ec493-d01f-4ec7-a32e-f21e0f4365b4" />
+Checked to see that installed:
+- sudo docker --version
 
-https://docs.docker.com/engine/install/ | 
-https://docs.docker.com/compose/ | 
-https://github.com/louislam/uptime-kuma | 
-https://hub.docker.com/r/louislam/uptime-kuma
+# ## **3. Installing Wireguard
+A directory for Wireguard to be created:
+- `mkdir ~/wireguard`
+- `cd ~/wireguard`
+Docker Compose File *(same as the prev. docker proj)*:
+- `nano docker-compose.yml`
+```
+services:
+  wireguard:
+    image: lscr.io/linuxserver/wireguard:latest
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - SERVERURL=138.197.23.123
+      - SERVERPORT=51820
+      - PEERS=1
+      - PEERDNS=1.1.1.1
+    volumes:
+      - ./config:/config
+    ports:
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
+```
+
+Started Docker & Checked Logs:
+```
+docker compose up -d
+docker logs wireguard // for the qr code
+```
+
+Getting the Config:
+```
+docker exec -it wireguard /app/show-peer 1 // qr
+ls ~/wireguard/config/peer1/
+cat ~/wireguard/config/peer1/peer1.conf
+
+```
+
+## **4. Testing VPN on mobile device, EZ
+https://ipleak.net/
+
+1. Installed WireGuard on my phone
+2. Inside the app, "Add Tunnel, Create from QR Code", and then scanned the QR code that was generated before
+3. VPN OFF
+	- ![phone tunnel vpn off](https://github.com/user-attachments/assets/75008e78-e4b5-4b58-8fff-4af385a3f873)
+    - ![phone vpn (off)](https://github.com/user-attachments/assets/12e00bf5-c06e-4e63-9903-b7dd7783e999)
+
+4. VPN ON![Uploading phone vpn (off).jpg…]()
+	- ![phone vpn (on)](https://github.com/user-attachments/assets/223dc9a7-3168-4470-8159-93c9df054118)
+	- ![phone tunnel vpn on](https://github.com/user-attachments/assets/86b2249e-723e-4362-b91f-62630348edbd)
+
+## **5. Downloaded `peer1.conf` locally:**
+
+I was having difficulty with Arch on this part. I could not get the peer1.conf to be found by WireGuard on Arch. Server was workign fine, but I was having problems client-side, so I just installed it locally on my computer instead using WinSCP (I just wanted to use WinSCP lol)
+
+Connected to the droplet: 
+- Protocol: SCP
+- Host: `138.197.23.123`
+- Username: `root`
+- Pass: same as the Digital Ocean one
+
+Downloaded the peer1.conf to my desktop
+## **6. WireGuard VPN**
+### **6.1 Import the Tunnel on WireGuard Desktop (Windows)**
+1. Chose **“Import tunnel(s) from file”**
+2. Selected `peer1.conf`
+### **6.2 Testing the Connection on Computer
+https://ipleak.net/
+
+1) VPN OFF
+	- <img width="2558" height="1377" alt="VPN (OFF)" src="https://github.com/user-attachments/assets/0b8b80cc-a1dd-440f-89ac-5b2594a66e3d" />
+
+2) VPN ON
+	- <img width="2558" height="1377" alt="VPN (ON)" src="https://github.com/user-attachments/assets/5cb6a4f1-ed81-4c69-9ffc-75bf6918b6d5" />
