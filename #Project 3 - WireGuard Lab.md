@@ -9,7 +9,7 @@ After creating an account...
 - Pass: **Redacted** lol
 <img width="2528" height="1323" alt="Digital Ocean" src="https://github.com/user-attachments/assets/ed653029-75f6-4b83-8de0-a0fe41705218" />
 
-# **2. Install Docker *
+# **2. Install Docker**
 I SSH'd into the droplet using my terminal (bounced back and forth between this and DigitalOcean's web console too)
 
 ```
