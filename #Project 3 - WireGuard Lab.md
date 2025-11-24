@@ -1,4 +1,4 @@
-# ## **1. Create DigitalOcean Droplet**
+# **1. Create DigitalOcean Droplet**
 After creating an account...
 ### **Droplet Specs**
 - Region: NYC
