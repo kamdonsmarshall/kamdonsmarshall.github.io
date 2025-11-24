@@ -9,7 +9,7 @@ After creating an account...
 - Pass: **Redacted** lol
 <img width="2528" height="1323" alt="Digital Ocean" src="https://github.com/user-attachments/assets/ed653029-75f6-4b83-8de0-a0fe41705218" />
 
-# ## **2. Install Docker *
+# **2. Install Docker *
 I SSH'd into the droplet using my terminal (bounced back and forth between this and DigitalOcean's web console too)
 
 ```
@@ -35,7 +35,7 @@ apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker
 Checked to see that installed:
 - sudo docker --version
 
-# ## **3. Installing Wireguard
+# **3. Installing Wireguard
 A directory for Wireguard to be created:
 - `mkdir ~/wireguard`
 - `cd ~/wireguard`
@@ -79,7 +79,7 @@ cat ~/wireguard/config/peer1/peer1.conf
 
 ```
 
-## **4. Testing VPN on mobile device, EZ
+# **4. Testing VPN on mobile device, EZ
 https://ipleak.net/
 
 1. Installed WireGuard on my phone
@@ -92,7 +92,7 @@ https://ipleak.net/
 	- ![phone vpn (on)](https://github.com/user-attachments/assets/223dc9a7-3168-4470-8159-93c9df054118)
 	- ![phone tunnel vpn on](https://github.com/user-attachments/assets/86b2249e-723e-4362-b91f-62630348edbd)
 
-## **5. Downloaded `peer1.conf` locally:**
+# **5. Downloaded `peer1.conf` locally:**
 
 I was having difficulty with Arch on this part. I could not get the peer1.conf to be found by WireGuard on Arch. Server was workign fine, but I was having problems client-side, so I just installed it locally on my computer instead using WinSCP (I just wanted to use WinSCP lol)
 
@@ -103,11 +103,11 @@ Connected to the droplet:
 - Pass: same as the Digital Ocean one
 
 Downloaded the peer1.conf to my desktop
-## **6. WireGuard VPN**
-### **6.1 Import the Tunnel on WireGuard Desktop (Windows)**
+# **6. WireGuard VPN**
+## **6.1 Import the Tunnel on WireGuard Desktop (Windows)**
 1. Chose **“Import tunnel(s) from file”**
 2. Selected `peer1.conf`
-### **6.2 Testing the Connection on Computer
+## **6.2 Testing the Connection on Computer
 https://ipleak.net/
 
 1) VPN OFF
